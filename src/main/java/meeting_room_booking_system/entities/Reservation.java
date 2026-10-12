@@ -1,4 +1,4 @@
-package meeting_room_booking_system.models;
+package meeting_room_booking_system.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

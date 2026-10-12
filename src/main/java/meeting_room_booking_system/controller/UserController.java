@@ -1,8 +1,11 @@
 package meeting_room_booking_system.controller;
-import meeting_room_booking_system.models.User;
+
+import meeting_room_booking_system.dtos.UserRequest;
+import meeting_room_booking_system.dtos.UserResponse;
+import meeting_room_booking_system.entities.User;
 import meeting_room_booking_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
+    @GetMapping ("/")
     public RedirectView menu () {
         return new RedirectView("/html/sign_up_screen.html");
     } // end of menu method
@@ -23,4 +26,10 @@ public class UserController {
     public void createUser (@RequestBody User newUser) {
         userService.saveUser(newUser);
     } // end of save user method
+
+    @PostMapping ("/users/login")
+    public ResponseEntity <UserResponse> loginUser (@RequestBody UserRequest request) {
+        UserResponse response = userService.login(request);
+        return ResponseEntity.ok(response);
+    } // end of login method
 } // end of class body
