@@ -14,8 +14,4 @@ public class UserService {
     public void saveUser (User user) {
         userRepository.save(user);
     } // end of save user method
-
-    public void deleteUser (User user) {
-        userRepository.delete(user);
-    } // end of delete user method
 } // end of class body
