@@ -3,6 +3,8 @@ package meeting_room_booking_system.service;
 import meeting_room_booking_system.dtos.UserRequest;
 import meeting_room_booking_system.dtos.UserResponse;
 import meeting_room_booking_system.entities.User;
+import meeting_room_booking_system.exception_handling.InvalidCredentialsException;
+import meeting_room_booking_system.exception_handling.InvalidRequisitionException;
 import meeting_room_booking_system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,7 @@ public class UserService {
         } // end of if body
 
         else {
-            throw new RuntimeException("Please enter a valid email and password");
+            throw new InvalidCredentialsException ("Please enter a valid email and password.");
         } // end of else body
     } // end of find user method
 } // end of class body
