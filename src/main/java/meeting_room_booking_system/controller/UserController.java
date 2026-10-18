@@ -1,15 +1,12 @@
 package meeting_room_booking_system.controller;
 
-import meeting_room_booking_system.dtos.DeleteUserRequest;
-import meeting_room_booking_system.dtos.UserLoginRequest;
-import meeting_room_booking_system.dtos.UserRequest;
-import meeting_room_booking_system.dtos.UserResponse;
-import meeting_room_booking_system.entities.User;
+import meeting_room_booking_system.dtos.user_dtos.DeleteUserRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserLoginRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserResponse;
 import meeting_room_booking_system.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 

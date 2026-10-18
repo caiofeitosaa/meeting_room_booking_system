@@ -1,12 +1,11 @@
 package meeting_room_booking_system.service;
 
 import jakarta.transaction.Transactional;
-import meeting_room_booking_system.dtos.DeleteUserRequest;
-import meeting_room_booking_system.dtos.UserLoginRequest;
-import meeting_room_booking_system.dtos.UserRequest;
-import meeting_room_booking_system.dtos.UserResponse;
+import meeting_room_booking_system.dtos.user_dtos.DeleteUserRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserLoginRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserRequest;
+import meeting_room_booking_system.dtos.user_dtos.UserResponse;
 import meeting_room_booking_system.entities.User;
-import meeting_room_booking_system.exception_handling.BadRequest400Exception;
 import meeting_room_booking_system.exception_handling.NotFound404Exception;
 import meeting_room_booking_system.exception_handling.Unauthorized401Exception;
 import meeting_room_booking_system.repository.UserRepository;

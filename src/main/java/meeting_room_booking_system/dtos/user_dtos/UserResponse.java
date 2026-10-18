@@ -1,4 +1,4 @@
-package meeting_room_booking_system.dtos;
+package meeting_room_booking_system.dtos.user_dtos;
 
 import meeting_room_booking_system.entities.User;
 

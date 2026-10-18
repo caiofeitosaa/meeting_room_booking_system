@@ -1,14 +1,13 @@
 package meeting_room_booking_system.controller;
 
-import meeting_room_booking_system.dtos.DeleteMeetingRoomRequest;
-import meeting_room_booking_system.dtos.MeetingRoomRequest;
-import meeting_room_booking_system.dtos.MeetingRoomResponse;
-import meeting_room_booking_system.dtos.SearchByRoomNumberRequest;
+import meeting_room_booking_system.dtos.meeting_room_dtos.DeleteMeetingRoomRequest;
+import meeting_room_booking_system.dtos.meeting_room_dtos.MeetingRoomRequest;
+import meeting_room_booking_system.dtos.meeting_room_dtos.MeetingRoomResponse;
+import meeting_room_booking_system.dtos.meeting_room_dtos.SearchByRoomNumberRequest;
 import meeting_room_booking_system.service.MeetingRoomService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.Reader;
 
 @RestController
 @RequestMapping ("/rooms")

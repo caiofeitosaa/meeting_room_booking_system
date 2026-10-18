@@ -1,4 +1,4 @@
-package meeting_room_booking_system.dtos;
+package meeting_room_booking_system.dtos.user_dtos;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
