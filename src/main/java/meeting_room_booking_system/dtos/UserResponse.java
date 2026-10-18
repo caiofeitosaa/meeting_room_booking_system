@@ -8,6 +8,6 @@ public record UserResponse (
         String email
 ) {
     public static UserResponse userResponse (User user) {
-        return new UserResponse (user.getId(), user.getEmail(), user.getPassword());
+        return new UserResponse (user.getId(), user.getName(), user.getEmail());
     } // end of user response method body
 } // end of record body

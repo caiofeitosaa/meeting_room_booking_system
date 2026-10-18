@@ -10,7 +10,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor // JPA needs a no-argument constructor to fetch data from the database
-@Entity (name = "users")// specifies that this class is a JPA entity and maps it to a database table (by default, a table named "user")
+@Entity // is a JPA annotation that marks a Java class as an entity managed by the persistence context, allowing its objects to be stored and retrieved from a database.
+@Table (name = "users") // otherwise by default it would be "user" on the database
 public class User {
     @Id // marks this field as the primary key of the database table
     @GeneratedValue(strategy = GenerationType.IDENTITY) // tells the database to automatically generate and auto-increment the ID (like MySQL's AUTO_INCREMENT)
