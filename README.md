@@ -1,14 +1,14 @@
 # Meeting Room Booking System
 
-A RESTful API developed with **Java and Spring Boot** to manage meeting rooms and users in a corporate environment, with plans to implement a meeting reservation system.
+A RESTful API developed with **Java and Spring Boot** to manage meeting rooms, users, and meeting reservations in a corporate environment.
 
 ## About the Project
 
 The Meeting Room Booking System is a backend project designed to support companies that need a centralized system for managing meeting rooms and scheduling meetings.
 
-The application allows users to register and log in, while meeting rooms can be registered and managed through API endpoints. Each room stores information such as its room number, capacity, and projector availability.
+The application allows users to register and log in, meeting rooms to be registered and managed, and reservations to be created and searched through API endpoints. Each room stores information such as its room number, capacity, and projector availability.
 
-The main goal is to develop a structured REST API that handles data persistence, input validation, business rules, and error handling. The project will also include a reservation system that prevents overlapping bookings for the same room.
+The main goal is to develop a structured REST API that handles data persistence, input validation, business rules, and error handling. The reservation system prevents overlapping bookings for the same room.
 
 This project is being developed incrementally, with a focus on backend development, RESTful API design, and good programming practices.
 
@@ -59,6 +59,13 @@ Base URL (local development):
 | GET | `/rooms/search` | Search for a room by room number |
 | DELETE | `/rooms/delete` | Delete a room using its ID and room number |
 
+### Reservations
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/reservation/create` | Create a reservation for an existing user and room |
+| GET | `/reservation/search?roomNumber={roomNumber}&date={date}` | Search reservations by room number and date (`YYYY-MM-DD`) |
+
 **Note:** The endpoints and request formats may evolve as the project develops.
 
 ## Example Requests
@@ -108,6 +115,26 @@ Base URL (local development):
   "roomNumber": 201
 }
 ```
+
+### Create a Reservation
+
+`POST /reservation/create`
+
+```json
+{
+  "roomNumber": 201,
+  "userId": 1,
+  "userName": "Caio Feitosa",
+  "startDateTime": "2026-10-20T10:08:00",
+  "endDateTime": "2026-10-20T11:10:00"
+}
+```
+
+The provided `userName` must match the name of the existing user identified by `userId`.
+
+### Search Reservations
+
+`GET /reservation/search?roomNumber=201&date=2026-10-20`
 
 These examples assume the DTO fields match the current implementation. Adapt them if your request classes use different field names or validation rules.
 
@@ -168,7 +195,7 @@ The application follows a layered structure to separate responsibilities:
 
 ## Future Improvements
 
-As development progresses, the project will focus on reservation management, time conflict detection, access control, and automated testing.
+As development progresses, the project will focus on access control and automated testing.
 
 Additional improvements may include API documentation, password security enhancements, and more comprehensive integration tests.
 

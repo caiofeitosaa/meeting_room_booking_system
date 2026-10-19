@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class UniversalExceptionHandler {
 
     @ExceptionHandler (BadRequest400Exception.class)
-    public ProblemDetail resourceNotFound (BadRequest400Exception exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage());
+    public ProblemDetail badRequest (BadRequest400Exception exception) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
     } // end of resource not found handler
 
     @ExceptionHandler (Unauthorized401Exception.class)

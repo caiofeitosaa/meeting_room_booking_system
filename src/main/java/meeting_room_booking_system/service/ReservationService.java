@@ -19,7 +19,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,14 +39,18 @@ public class ReservationService {
     public void createReservation (ReservationRequest request) {
         User user = userRepository.findById(request.userId()).orElseThrow(() -> new NotFound404Exception("User not found"));
 
+        if (!user.getName().equals(request.userName())) {
+            throw new BadRequest400Exception("The provided username does not match the user ID");
+        } // end of if body
+
         MeetingRoom meetingRoom = meetingRoomRepository.findByRoomNumber(request.roomNumber());
 
         if (meetingRoom == null) {
             throw new NotFound404Exception("Meeting Room not found");
         } // end of if body
 
-        LocalDateTime start = request.startDateTime().truncatedTo(ChronoUnit.MINUTES);
-        LocalDateTime end = request.endDateTime().truncatedTo(ChronoUnit.MINUTES);
+        LocalDateTime start = request.startDateTime();
+        LocalDateTime end = request.endDateTime();
 
         Duration reservationDuration = Duration.between(start, end);
 
@@ -58,11 +61,11 @@ public class ReservationService {
             throw new BadRequest400Exception("Cannot book a time in the past");
         } // end of if body
 
-        if (start.getMinute() != 0 || start.getSecond() != 0) {
+        if (start.getMinute() != 0 || start.getSecond() != 0 || start.getNano() != 0) {
             throw new BadRequest400Exception("The reservation must start at a full hour.");
         } // end of if body
 
-        if (end.getMinute() != 0 || end.getSecond() != 0) {
+        if (end.getMinute() != 0 || end.getSecond() != 0 || end.getNano() != 0) {
             throw new BadRequest400Exception("The reservation must end at a full hour.");
         } // end of if body
 
@@ -100,7 +103,8 @@ public class ReservationService {
         LocalDateTime start = request.date().atStartOfDay();
         LocalDateTime end = request.date().plusDays(1).atStartOfDay();
 
-        List <Reservation> reservations = reservationRepository.findByRoom_RoomNumberAndStartDateTimeBetween(request.roomNumber(), end, start);
+        List <Reservation> reservations = reservationRepository.findByRoom_RoomNumberAndStartDateTimeGreaterThanEqualAndStartDateTimeLessThan(
+                request.roomNumber(), start, end);
         List <ReservationResponse> responses = new ArrayList<>();
 
         if (reservations.isEmpty()) {
