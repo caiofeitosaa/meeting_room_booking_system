@@ -10,7 +10,7 @@ The application allows users to register and log in, meeting rooms to be registe
 
 The main goal is to develop a structured REST API that handles data persistence, input validation, business rules, and error handling. The reservation system prevents overlapping bookings for the same room.
 
-This project is being developed incrementally, with a focus on backend development, RESTful API design, and good programming practices.
+The core API is complete and the project is now in maintenance and improvement phase, with a focus on backend development, RESTful API design, and good programming practices.
 
 ## Technologies Used
 
@@ -165,7 +165,7 @@ Make sure you have installed:
 1. Clone the repository:
 
    ```bash
-   git clone <https://github.com/caiofeitosaa/meeting_room_booking_system>
+   git clone https://github.com/caiofeitosaa/meeting_room_booking_system
    ```
 
 2. Navigate to the project directory:
