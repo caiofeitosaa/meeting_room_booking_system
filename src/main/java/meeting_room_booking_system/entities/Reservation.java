@@ -32,4 +32,11 @@ public class Reservation {
     @ManyToOne
     @JoinColumn (name = "room_id", nullable = false)
     private MeetingRoom room;
+
+    public Reservation (LocalDateTime startDateTime, LocalDateTime endDateTime, User user, MeetingRoom room) {
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
+        this.user = user;
+        this.room = room;
+    } // end of constructor
 } // end of class body
