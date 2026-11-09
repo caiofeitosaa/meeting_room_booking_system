@@ -1,16 +1,14 @@
-# Meeting Room Booking System
+# Gather — Meeting Room Booking System
 
-A RESTful API developed with **Java and Spring Boot** to manage meeting rooms, users, and meeting reservations in a corporate environment.
+**Gather** is a meeting room management and booking system that helps teams register meeting rooms, check availability, and schedule meetings. It combines a responsive web interface with a REST API built using **Java and Spring Boot**.
 
 ## About the Project
 
-The Meeting Room Booking System is a backend project designed to support companies that need a centralized system for managing meeting rooms and scheduling meetings.
+Gather provides a simple place to manage meeting spaces and bring teams together. Users can create an account, browse room details such as capacity and projector availability, check a room's schedule, and book a meeting.
 
-The application allows users to register and log in, meeting rooms to be registered and managed, and reservations to be created and searched through API endpoints. Each room stores information such as its room number, capacity, and projector availability.
+The web interface is served by Spring Boot and connects to the same API used to manage users, rooms, and reservations. The API handles persistence, input validation, and booking rules, including preventing overlapping reservations for the same room.
 
-The main goal is to develop a structured REST API that handles data persistence, input validation, business rules, and error handling. The reservation system prevents overlapping bookings for the same room.
-
-The core API is complete and the project is now in maintenance and improvement phase, with a focus on backend development, RESTful API design, and good programming practices.
+Before using the interface to search for rooms or make bookings, create at least one meeting room through the `POST /rooms/create` endpoint.
 
 ## Technologies Used
 
@@ -181,6 +179,10 @@ Make sure you have installed:
 5. Run the application using your IDE or Maven.
 
 6. Once the application is running, use Postman to send requests to the endpoints listed above.
+
+### Web Interface
+
+The application includes a responsive meeting-room booking interface served by Spring Boot. Start the application and open `http://localhost:8080` in a browser. Before testing the interface, create one or more meeting rooms through the `POST /rooms/create` API endpoint; room search and bookings require an existing room. Then create an account or sign in to associate reservations with your user profile, and use the room schedule to check a room's reservations by room number and date.
 
 ## Project Structure
 

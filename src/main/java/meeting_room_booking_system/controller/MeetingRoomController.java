@@ -28,8 +28,8 @@ public class MeetingRoomController {
         meetingRoomService.deleteMeetingRoom(request);
     } // end of delete meeting room method
 
-    @GetMapping ("/search")
-    public MeetingRoomResponse searchByRoomNumber (@Valid @RequestBody SearchByRoomNumberRequest request) {
-        return meetingRoomService.searchMeetingRoomByRoomNumber(request);
+    @GetMapping (value = "/search", params = "roomNumber")
+    public MeetingRoomResponse searchByRoomNumberParameter (@RequestParam Integer roomNumber) {
+        return meetingRoomService.searchMeetingRoomByRoomNumber(new SearchByRoomNumberRequest(roomNumber));
     } // end of search by room number method
 } // end of class body

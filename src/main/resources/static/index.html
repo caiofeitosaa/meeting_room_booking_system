@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f6fb">
+    <title>Gather — Meeting room booking</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/" aria-label="Gather home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M7 17.5 4.5 20v-4.1A7.5 7.5 0 0 1 4 13.5 7.5 7.5 0 0 1 11.5 6h1A7.5 7.5 0 0 1 20 13.5v.1a7.4 7.4 0 0 1-7.5 7.4h-1a7.4 7.4 0 0 1-4.5-1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13h.01M12 13h.01M15 13h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                </span>
+                <span>gather<span class="brand-period">.</span></span>
+            </a>
+
+            <div class="workspace-label">WORKSPACE</div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-link active" type="button" data-page="home">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.8"/></svg>
+                    <span>Overview</span>
+                </button>
+                <button class="nav-link" type="button" data-page="schedule">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h2M14 13h2M8 16.5h2"/></svg>
+                    <span>Room schedule</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="help-card">
+                    <span class="help-icon" aria-hidden="true">✦</span>
+                    <strong>Make room for good ideas.</strong>
+                    <span>Find a space that works for your team.</span>
+                    <button class="text-button" type="button" data-action="book">Book a room <span aria-hidden="true">→</span></button>
+                </div>
+                <button class="profile-button" id="profile-button" type="button">
+                    <span class="avatar" id="user-avatar">G</span>
+                    <span class="profile-copy"><strong id="user-name">Guest</strong><small id="user-email">Sign in to get started</small></span>
+                    <span class="profile-menu" aria-hidden="true">···</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong id="page-title">Overview</strong></div>
+                <div class="topbar-actions">
+                    <span class="today-label" id="today-label"></span>
+                    <button class="button button-primary button-small" type="button" data-action="book">
+                        <span aria-hidden="true">＋</span> Book a room
+                    </button>
+                </div>
+            </header>
+
+            <section class="page-section active" id="home-page">
+                <div class="welcome-row">
+                    <div>
+                        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR MEETING SPACE</div>
+                        <h1>A little more room<br>for <span>big ideas.</span></h1>
+                        <p class="welcome-copy">Find the right space, bring your people together, and make something happen.</p>
+                        <button class="button button-primary" type="button" data-action="book">Book a meeting <span aria-hidden="true">→</span></button>
+                    </div>
+                    <div class="welcome-art" aria-hidden="true">
+                        <div class="art-orbit orbit-one"></div>
+                        <div class="art-orbit orbit-two"></div>
+                        <div class="art-window">
+                            <div class="art-window-top"><span></span><span></span><span></span></div>
+                            <div class="art-table"></div>
+                            <div class="art-chair chair-one"></div><div class="art-chair chair-two"></div>
+                            <div class="art-plant"><i></i><i></i><i></i></div>
+                            <div class="art-sun"></div>
+                        </div>
+                        <div class="art-sparkle sparkle-one">✦</div><div class="art-sparkle sparkle-two">✳</div>
+                        <div class="art-note"><span class="note-check">✓</span><span><strong>Good things happen</strong><small>when we get together</small></span></div>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div><h2>Make it a good meeting</h2><p>A few helpful things to get you going.</p></div>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <span class="feature-icon lavender">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h2M14 13h2M8 16.5h2"/></svg>
+                        </span>
+                        <span class="feature-kicker">01 / FIND YOUR TIME</span>
+                        <h3>Check the schedule</h3>
+                        <p>See what’s happening in a room before you make it yours.</p>
+                        <button class="card-link" type="button" data-page="schedule">Explore schedules <span aria-hidden="true">→</span></button>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon peach">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12M8 20v-6h8v6M9 9h.01M15 9h.01"/></svg>
+                        </span>
+                        <span class="feature-kicker">02 / BRING YOUR TEAM</span>
+                        <h3>Make it official</h3>
+                        <p>Choose your room, pick a time, and send your meeting into motion.</p>
+                        <button class="card-link" type="button" data-action="book">Book a room <span aria-hidden="true">→</span></button>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-icon mint">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 14.6 9l5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8L12 3.5Z"/></svg>
+                        </span>
+                        <span class="feature-kicker">03 / MAKE IT YOURS</span>
+                        <h3>Find your fit</h3>
+                        <p>Looking for a little extra? Check room capacity and projector details.</p>
+                        <button class="card-link" type="button" data-action="find-room">Explore room details <span aria-hidden="true">→</span></button>
+                    </article>
+                </div>
+
+                <div class="bottom-callout">
+                    <div class="callout-icon" aria-hidden="true">✳</div>
+                    <div><strong>Better meetings start with a space that feels right.</strong><span>Check a room’s availability and details whenever you’re ready.</span></div>
+                    <button class="button button-light" type="button" data-action="find-room">Find a room <span aria-hidden="true">→</span></button>
+                </div>
+            </section>
+
+            <section class="page-section" id="schedule-page">
+                <div class="page-intro">
+                    <div class="eyebrow"><span class="eyebrow-dot"></span> PLAN AHEAD · UTC</div>
+                    <h1>Room <span>schedule.</span></h1>
+                    <p>Look up a room and date to see its booked meeting times.</p>
+                </div>
+                <div class="schedule-layout">
+                    <section class="panel search-panel">
+                        <div class="panel-heading"><span class="panel-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></span><div><h2>Find a room</h2><p>Search by room number and date.</p></div></div>
+                        <form id="schedule-form" class="form-stack">
+                            <label for="schedule-room">Room number</label>
+                            <input id="schedule-room" name="roomNumber" type="number" min="100" max="300" placeholder="e.g. 201" required>
+                            <label for="schedule-date">Meeting date</label>
+                            <input id="schedule-date" name="date" type="date" required>
+                            <button class="button button-primary full-width" type="submit">Show schedule <span aria-hidden="true">→</span></button>
+                        </form>
+                        <p class="form-hint">Room numbers range from 100 to 300.</p>
+                    </section>
+                    <section class="panel results-panel" aria-live="polite">
+                        <div class="results-heading"><div><span class="result-label">YOUR RESULTS</span><h2 id="results-title">Room schedule</h2></div><span class="results-date" id="results-date"></span></div>
+                        <div id="schedule-results" class="schedule-results">
+                            <div class="empty-state"><span class="empty-icon">✳</span><strong>Your schedule starts here</strong><span>Search for a room to see its booked meeting times.</span></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-backdrop" id="auth-modal" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+            <button class="modal-close" type="button" data-action="close-modal" aria-label="Close dialog">×</button>
+            <a class="brand modal-brand" href="/"><span class="brand-mark" aria-hidden="true">✳</span><span>gather<span class="brand-period">.</span></span></a>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT MEETING</div>
+            <h2 id="auth-title">Welcome back.</h2>
+            <p class="modal-subtitle" id="auth-subtitle">Sign in to book a room with your team.</p>
+            <div class="auth-tabs" role="tablist" aria-label="Account options">
+                <button class="auth-tab active" id="login-tab" type="button" role="tab" aria-selected="true">Sign in</button>
+                <button class="auth-tab" id="register-tab" type="button" role="tab" aria-selected="false">Create account</button>
+            </div>
+            <form id="auth-form" class="form-stack">
+                <div id="name-field" hidden><label for="auth-name">Your name</label><input id="auth-name" name="name" autocomplete="name" maxlength="80" placeholder="Alex Morgan"></div>
+                <label for="auth-email">Email address</label>
+                <input id="auth-email" name="email" type="email" autocomplete="email" maxlength="80" placeholder="you@company.com" required>
+                <label for="auth-password">Password</label>
+                <input id="auth-password" name="password" type="password" autocomplete="current-password" maxlength="80" placeholder="Your password" required>
+                <button class="button button-primary full-width" type="submit" id="auth-submit">Sign in <span aria-hidden="true">→</span></button>
+                <p class="form-message" id="auth-message" role="status"></p>
+            </form>
+        </section>
+    </div>
+
+    <div class="modal-backdrop" id="booking-modal" hidden>
+        <section class="modal booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+            <button class="modal-close" type="button" data-action="close-booking" aria-label="Close dialog">×</button>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> MAKE IT HAPPEN</div>
+            <h2 id="booking-title">Book your room.</h2>
+            <p class="modal-subtitle" id="booking-subtitle">A few details, then your team is all set.</p>
+            <form id="booking-form" class="form-stack">
+                <label for="booking-room">Room number</label>
+                <input id="booking-room" name="roomNumber" type="number" min="100" max="300" placeholder="e.g. 201" required>
+                <label for="booking-date">Meeting date</label>
+                <input id="booking-date" name="date" type="date" required>
+                <div class="time-fields">
+                    <div><label for="booking-start">Starts at (UTC)</label><input id="booking-start" name="startTime" type="time" min="08:00" max="18:00" step="3600" required></div>
+                    <div><label for="booking-end">Ends at (UTC)</label><input id="booking-end" name="endTime" type="time" min="09:00" max="19:00" step="3600" required></div>
+                </div>
+                <p class="booking-hint">Times are UTC. Bookings are at least one hour, on the hour, between 8:00 AM and 7:00 PM.</p>
+                <button class="button button-primary full-width" type="submit">Confirm booking <span aria-hidden="true">→</span></button>
+                <p class="form-message" id="booking-message" role="status"></p>
+            </form>
+        </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
