@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f7f6fb">
     <title>Gather — Meeting room booking</title>
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/app.js" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=2">
+    <script src="/app.js?v=2" defer></script>
 </head>
 <body>
     <div class="app-shell">
@@ -178,6 +178,8 @@
             <h2 id="booking-title">Book your room.</h2>
             <p class="modal-subtitle" id="booking-subtitle">A few details, then your team is all set.</p>
             <form id="booking-form" class="form-stack">
+                <button class="button button-light button-small" type="button" id="list-rooms">Show available rooms</button>
+                <div id="room-list" class="room-list" hidden></div>
                 <label for="booking-room">Room number</label>
                 <input id="booking-room" name="roomNumber" type="number" min="100" max="300" placeholder="e.g. 201" required>
                 <label for="booking-date">Meeting date</label>

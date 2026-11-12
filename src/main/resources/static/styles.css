@@ -144,6 +144,10 @@ h1 span { color: #805dce; }
 .meeting-row { display: grid; grid-template-columns: 73px 1fr auto; align-items: center; gap: 12px; padding: 12px; border: 1px solid #f0edf4; border-radius: 9px; background: #fdfcff; }
 .meeting-time { color: #7653cf; font-size: 10px; font-weight: 700; }
 .meeting-details { display: grid; gap: 4px; }.meeting-details strong { font-size: 11px; }.meeting-details span { color: #9994a0; font-size: 9px; }
+.room-list[hidden] { display: none; }
+.room-list { display: grid; gap: 6px; max-height: 170px; overflow-y: auto; }
+.room-list .meeting-row { grid-template-columns: 1fr auto; width: 100%; font: inherit; text-align: left; cursor: pointer; }
+.room-list .meeting-row:hover, .room-list .meeting-row.selected { border-color: #6d50b4; }
 .meeting-pill { padding: 5px 8px; color: #6d50b4; border-radius: 20px; background: #f1edfa; font-size: 8px; font-weight: 700; }
 .results-message { padding: 13px; border-radius: 8px; color: #716c78; background: #f8f6fb; font-size: 11px; line-height: 1.6; }
 .results-message.error { color: #a14355; background: #fff3f4; }

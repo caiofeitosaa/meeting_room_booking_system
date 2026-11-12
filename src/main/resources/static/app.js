@@ -252,6 +252,36 @@ async function loadSchedule(roomNumber, date) {
     }
 }
 
+document.querySelector('#list-rooms').addEventListener('click', async () => {
+    const list = document.querySelector('#room-list');
+    const message = document.querySelector('#booking-message');
+    try {
+        const rooms = await request('/rooms');
+        list.replaceChildren();
+        if (!rooms.length) message.textContent = 'No rooms registered yet.';
+        rooms.sort((a, b) => a.roomNumber - b.roomNumber).forEach((room) => {
+            const row = document.createElement('button');
+            row.type = 'button';
+            row.className = 'meeting-row';
+            const info = document.createElement('span');
+            info.textContent = `Room ${room.roomNumber} · ${room.capacity} people${room.hasProjector ? ' · Projector' : ''}`;
+            const pill = document.createElement('span');
+            pill.className = 'meeting-pill';
+            pill.textContent = 'Select';
+            row.append(info, pill);
+            row.addEventListener('click', () => {
+                document.querySelector('#booking-room').value = room.roomNumber;
+                list.querySelectorAll('.selected').forEach((el) => el.classList.remove('selected'));
+                row.classList.add('selected');
+            });
+            list.append(row);
+        });
+        list.hidden = false;
+    } catch (error) {
+        message.textContent = error.message;
+    }
+});
+
 function startBooking() {
     openBooking();
 }

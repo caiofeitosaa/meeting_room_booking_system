@@ -43,6 +43,10 @@ public class MeetingRoomService {
         } // end of else body
     } // end of delete meeting room method
 
+    public java.util.List<MeetingRoomResponse> listMeetingRooms () {
+        return meetingRoomRepository.findAll().stream().map(MeetingRoomResponse::response).toList();
+    } // end of list all rooms method
+
     public MeetingRoomResponse searchMeetingRoomByRoomNumber (SearchByRoomNumberRequest request) {
         MeetingRoom meetingRoom = meetingRoomRepository.findByRoomNumber(request.roomNumber());
 
