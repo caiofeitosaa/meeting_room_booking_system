@@ -33,7 +33,7 @@ Each meeting room contains information such as:
 - **Capacity:** Maximum number of people the room can accommodate.
 - **Projector availability:** Indicates whether the room has a projector.
 
-The API supports creating rooms, searching for them by room number, and deleting a room by providing its ID and room number.
+The API supports creating rooms, listing all of them, searching for them by room number, and deleting a room by providing its ID and room number.
 
 ## API Endpoints
 
@@ -54,6 +54,7 @@ Base URL (local development):
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | `/rooms/create` | Register a meeting room |
+| GET | `/rooms` | List all registered meeting rooms |
 | GET | `/rooms/search` | Search for a room by room number |
 | DELETE | `/rooms/delete` | Delete a room using its ID and room number |
 
@@ -130,6 +131,16 @@ Base URL (local development):
 
 The provided `userName` must match the name of the existing user identified by `userId`.
 
+### List Meeting Rooms
+
+`GET /rooms`
+
+```json
+[
+  { "roomNumber": 201, "capacity": 10, "hasProjector": true }
+]
+```
+
 ### Search Reservations
 
 `GET /reservation/search?roomNumber=201&date=2026-10-20`
@@ -183,6 +194,8 @@ Make sure you have installed:
 ### Web Interface
 
 The application includes a responsive meeting-room booking interface served by Spring Boot. Start the application and open `http://localhost:8080` in a browser. Before testing the interface, create one or more meeting rooms through the `POST /rooms/create` API endpoint; room search and bookings require an existing room. Then create an account or sign in to associate reservations with your user profile, and use the room schedule to check a room's reservations by room number and date.
+
+To book a room, click **Book a room** and then **Show available rooms**. The interface lists every registered room with its capacity and projector availability; select one to fill in the room number, then choose the date and time. The list shows all rooms, not only those free at the chosen time, so a room that is already booked is still rejected by the API with a `409 Conflict`.
 
 ## Project Structure
 
